@@ -34,6 +34,6 @@ async  def update_data(id: int ,item_Rob: Item_class):
     return conn.execute(item_table.select()).fetchall()
 
 @item_Rob.delete("/")
-async  def delete_data():
+async  def delete_data(id: int ):
     conn.execute(item_table.delete().where (item_table.c.id==id))
     return conn.execute(item_table.select()).fetchall()

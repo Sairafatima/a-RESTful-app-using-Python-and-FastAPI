@@ -5,7 +5,7 @@ from sqlalchemy import Table,Column
 from config.db import meta
 item_table = Table(
     'item_table',meta,
-    Column('id',Integer,primary_key=True),
+    Column('id',Integer,autoincrement=True, primary_key=True),
     Column('Name',String(255)),
     Column('Location',String(255)),
     Column('Description',String),
