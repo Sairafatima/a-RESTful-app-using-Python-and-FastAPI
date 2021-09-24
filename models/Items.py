@@ -4,11 +4,11 @@ from sqlalchemy.sql.sqltypes import Date, Integer, String
 from sqlalchemy import Table,Column
 from config.db import meta
 item_table = Table(
-    'Items',meta,
+    'item_table',meta,
     Column('id',Integer,primary_key=True),
     Column('Name',String(255)),
     Column('Location',String(255)),
-    Column('Description',String(1000)),
+    Column('Description',String),
     Column('Date',Date),
-    Column('others',String(1000))
+    Column('others',String)
 )

@@ -13,6 +13,7 @@ async  def read_data(id:int):
 @item_Rob.post("/")
 async  def write_data(item_Rob: Item_class):
      conn.execute(item_table.insert().values(
+       
          Name=item_Rob.Name,
          Location=item_Rob.Location,
          Description=item_Rob.Description,
