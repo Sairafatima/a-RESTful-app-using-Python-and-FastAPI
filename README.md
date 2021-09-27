@@ -28,7 +28,7 @@
 <h1>Steps to follow</h1>
 <ul>
   <li>Install python 3 on your pc and make sure it is added in Environment Variables</li>
-  <li>Run command to upgrade pip version:<b> -m pip install --upgrade pip   </b></li>
+  <li>Run command to upgrade pip version:<b> python -m pip install --upgrade pip </b></li>
   <li>Install Virtual environment:<b> pip install pipenv </b></li>
 </ul>
 <h>Git Control(Optional)</h1>
@@ -54,14 +54,5 @@
   <li>Setup Xamp and run MySQL server on local host</li>
   <li>Create Tables on MySQL server according to models defined in your files</li>
   <li> Run command to start API on http://127.0.0.1:8000/docs :<b> uvicorn index:app --reload</b></li>
-
-
-
 </ul>
-
-
-
-
-
-
 </html>
