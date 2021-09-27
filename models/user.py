@@ -3,7 +3,7 @@ from sqlalchemy.sql.schema import PrimaryKeyConstraint, Table
 from sqlalchemy.sql.sqltypes import Date, Integer, String
 from sqlalchemy import Table,Column
 from config.db import meta
-#users table
+#users table#
 user = Table(
     'user',meta,
     Column('id',Integer,autoincrement=True),
