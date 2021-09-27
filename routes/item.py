@@ -1,5 +1,6 @@
 from fastapi import FastAPI, Depends, HTTPException, status, APIRouter
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from fastapi_pagination import Page, add_pagination, paginate, pagination_params
 from passlib.hash import bcrypt
 from fastapi import FastAPI, Form
 import jwt
@@ -9,12 +10,14 @@ from config.db import conn
 from models.index import item_table
 #class models import
 from schemas.index import Item_class
-item_obj=APIRouter()
 
-@item_obj.get("/See all items")
+
+item_obj=APIRouter()
+#get all items in databse
+@item_obj.get("/See all items", response_model=Page[Item_class], dependencies=[Depends(pagination_params)]) #return in the form of paginated tables
 async  def read_data():
     #return all rows   
-    return conn.execute(item_table.select()).fetchall()
+    return paginate((conn.execute(item_table.select()).fetchall()))
 
 @item_obj.get("/Search_with_name")
 async  def search(name:str):

@@ -1,6 +1,7 @@
 {
     "recommendations": [
         "github.remotehub",
-        "alexcvzz.vscode-sqlite"
+        "alexcvzz.vscode-sqlite",
+        "ms-azuretools.vscode-docker"
     ]
 }
