@@ -1,7 +1,16 @@
 # a-RESTful-app-using-Python-and-FastAPI
-Software Features
 <html>
-<h1>Software Featiures</h1>
+<h1>Endpoints Implemented</h1>
+
+<ul>
+  <li>User Registrations</li>
+  <li>User Login</li>
+  <li>Search items</li>
+  <li>Remove items</li>
+  <li>Update items</li>
+</ul>
+
+
 
 
 
