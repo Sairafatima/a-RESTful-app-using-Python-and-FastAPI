@@ -55,8 +55,4 @@
   <li>Create Tables on MySQL server according to models defined in your files</li>
   <li> Run command to start API on http://127.0.0.1:8000/docs :<b> uvicorn index:app --reload</b></li>
 </ul>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> 8627ee44a91d25c4297184215759c25a0c9a4aef
