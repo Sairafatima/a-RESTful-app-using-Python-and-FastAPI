@@ -15,7 +15,7 @@ csv_obj=APIRouter()
 @csv_obj.post("/upload files")
 async  def read_data(file_obj: UploadFile = File(...)):
     #copy file to a temporary file on server
-    with open("des.csv", "wb") as buffer:
+    with open("temp.csv", "wb") as buffer:
         shutil.copyfileobj(file_obj.file, buffer) 
     #read temporary file and uodate database
 
