@@ -8,7 +8,7 @@ import jwt
 from config.db import conn
 
 from models.index import user
-from schemas.item import user_class
+from schemas.index import user_class
 
 user_obj=APIRouter() 
 #variable for password hashing
@@ -43,7 +43,7 @@ async def authenticate_user(username: str, password: str):
     #if username not found 
     if not userf:
         return False 
-    #this code change the table result into actual dict list
+    #this code change the table result into dict list
     d, user_list = {}, []
     for rowproxy in userf:
         # rowproxy.items() returns an array like [(key0, value0), (key1, value1)]
