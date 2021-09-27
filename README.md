@@ -36,8 +36,7 @@
   <li>Install Github on ur pc. Make sure to add Git in ur path</li>
   <li>Install Git extension in VSCode</li>
   <li>Connect your GitHub account by running this command in  VSCode terminal </li>
-  <b> git config --global user.name <"username">  </b>
-  <h>  </h>
+  <b> git config --global user.name <"username">  </b><br>
    <b>git config --global user.name <"email account"> </b>
   <li>Install Virtual environment:pip install pipenv  </li>
 </ul>
