@@ -3,7 +3,7 @@ from sqlalchemy.sql.schema import PrimaryKeyConstraint, Table
 from sqlalchemy.sql.sqltypes import Date, Integer, String
 from sqlalchemy import Table,Column
 from config.db import meta
-# items table
+# items table 
 item_table = Table(
     'item_table',meta,
     Column('id',Integer,autoincrement=True, primary_key=True),

@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Depends, HTTPException, status, APIRouter
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from passlib.hash import bcrypt
+from fastapi import FastAPI, Form
 import jwt
 #database connection import
 from config.db import conn
@@ -15,13 +16,16 @@ async  def read_data():
     #return all rows   
     return conn.execute(item_table.select()).fetchall()
 
-@item_obj.get("/Search")
-async  def search(item_Rob: Item_class):
-    return conn.execute(item_table.select().where (item_table.c.id==item_Rob.id) | item_table.select().where (item_table.c.Name==item_Rob.Name)).fetchall()
+@item_obj.get("/Search_with_name")
+async  def search(name:str):
+    return conn.execute(item_table.select().where (item_table.c.Name==name)).fetchall()
+@item_obj.get("/Search_with_Location")
+async  def search(location:str):
+    return conn.execute(item_table.select().where (item_table.c.Location==location)).fetchall()
 
 
 @item_obj.post("/Add Item")
-async  def write_data(item_Rob: Item_class):
+async  def write_data(item_Rob: Item_class=Depends()):
      conn.execute(item_table.insert().values(       
          Name=item_Rob.Name,
          Location=item_Rob.Location,
@@ -33,9 +37,10 @@ async  def write_data(item_Rob: Item_class):
 
 
 @item_obj.put("/Update Items")
-async  def update_data(item_Rob: Item_class):
+
+async  def update_data(id:int,item_Rob: Item_class=Depends()):
     conn.execute(item_table.update().values(
-        Name=item_Rob.Name,
+         Name=item_Rob.Name,
          Location=item_Rob.Location,
          Description=item_Rob.Description,
          Date=item_Rob.Date,

@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Depends, HTTPException, status,APIRouter
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from passlib.hash import bcrypt
+from fastapi import FastAPI, Form
 import jwt
 #database connection
 from config.db import conn
@@ -15,14 +16,15 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl='token')
 JWT_SECRET='my_secret'
 @user_obj.post("/user")
-async def create_user(user_obj: user_class):
+async def create_user(form_data: user_class= Depends()):
+    print(type(form_data))
     conn.execute(user.insert().values(       
-         First_Name=user_obj.First_Name,
-         Last_Name=user_obj.Last_Name,
-         username=user_obj.username,     
-         password_hash=pwd_context.hash(user_obj.password_hash)
+         First_Name=form_data.First_Name,
+         Last_Name=form_data.Last_Name,
+         username=form_data.username,     
+         password_hash=pwd_context.hash(form_data.password_hash)
          ))
-    return user_obj
+    return form_data
 
 
 def Convert(a):
@@ -46,6 +48,7 @@ async def authenticate_user(username: str, password: str):
     if not pwd_context.verify(password,hash):
         return False   
     return True
+
 @user_obj.post("/User Login")
 async  def login(form_data: OAuth2PasswordRequestForm = Depends()):
       if(await authenticate_user(form_data.username, form_data.password)):
