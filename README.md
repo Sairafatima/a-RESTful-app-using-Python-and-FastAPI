@@ -31,7 +31,7 @@
   <li>Run command to upgrade pip version:<b> python -m pip install --upgrade pip </b></li>
   <li>Install Virtual environment:<b> pip install pipenv </b></li>
 </ul>
-<h>Git Control(Optional)</h1>
+<h1>Git Control(Optional)</h1>
 <ul>
   <li>Install GitHub on your pc. Make sure to add Git in you path Variable</li>
   <li>Install Git extension in VSCode</li>
