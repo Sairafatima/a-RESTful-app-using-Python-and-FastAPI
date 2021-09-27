@@ -25,7 +25,7 @@
   <li>Git Control (Optional)</li>
   <li>Xamp: to run MySQL server</li>
 </ul>
-<h1>Steps to follow</h1>
+<h3>Steps to follow</h3>
 <ul>
   <li>Install python 3 on your pc and make sure it is added in Environment Variables</li>
   <li>Run command to upgrade pip version:<b> python -m pip install --upgrade pip </b></li>
