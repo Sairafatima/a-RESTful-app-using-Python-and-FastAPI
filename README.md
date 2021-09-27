@@ -25,13 +25,13 @@
   <li>Git Control (Optional)</li>
   <li>Xamp: to run MySQL server</li>
 </ul>
-<h3>Steps to follow</h3>
+<h1>Steps to follow</h1>
 <ul>
   <li>Install python 3 on your pc and make sure it is added in Environment Variables</li>
   <li>Run command to upgrade pip version:<b> python -m pip install --upgrade pip </b></li>
   <li>Install Virtual environment:<b> pip install pipenv </b></li>
 </ul>
-<h1>Git Control(Optional)</h1>
+<h3>Git Control(Optional)</h3>
 <ul>
   <li>Install GitHub on your pc. Make sure to add Git in you path Variable</li>
   <li>Install Git extension in VSCode</li>
