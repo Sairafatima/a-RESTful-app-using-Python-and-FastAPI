@@ -28,8 +28,8 @@
 <h1>Steps to follow</h1>
 <ul>
   <li>Install python 3 on your pc and make sure it is added in Environment Variables</li>
-  <li>Run command to upgrade pip version: -m pip install --upgrade pip   </li>
-  <li>Install Virtual environment: pip install pipenv </li>
+  <li>Run command to upgrade pip version:<b> -m pip install --upgrade pip   </b></li>
+  <li>Install Virtual environment:<b> pip install pipenv </b></li>
 </ul>
 <h>Git Control(Optional)</h1>
 <ul>
