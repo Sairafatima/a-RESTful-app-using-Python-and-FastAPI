@@ -31,6 +31,16 @@
   <li>Run command to upgrade pip version: -m pip install --upgrade pip   </li>
   <li>Install Virtual environment:pip install pipenv  </li>
 </ul>
+<h>Git Control(Optional)</h1>
+<ul>
+  <li>Install Github on ur pc. Make sure to add Git in ur path</li>
+  <li>Install Git extension in VSCode</li>
+  <li>Connect your GitHub account by running this command in  VSCode terminal </li>
+   "git config --global user.name <"username"> " 
+   "git config --global user.name <"email account"> "
+  <li>Install Virtual environment:pip install pipenv  </li>
+</ul>
+
 
 
 
