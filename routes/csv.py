@@ -19,7 +19,7 @@ async  def read_data(file_obj: UploadFile = File(...)):
         shutil.copyfileobj(file_obj.file, buffer) 
     #read temporary file and uodate database
 
-    data = pd.read_csv("des.csv" ,compression='infer',date_parser=True) 
+    data = pd.read_csv("temp.csv" ,compression='infer',date_parser=True) 
     #convert pandas dataframes to list
     data_list = data.values
     for line in  data_list:     
@@ -32,3 +32,4 @@ async  def read_data(file_obj: UploadFile = File(...)):
         Date=date_time_obj,
         others=line[4]
     ))
+    return ("Rords uploaded")
