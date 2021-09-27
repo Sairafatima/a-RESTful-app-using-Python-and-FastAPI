@@ -1,4 +1,7 @@
 from sqlalchemy import MetaData
-from models.Items import item_table,user
+#import table
+from models.Items import item_table
+from models.user import user
+
 
 meta =MetaData()

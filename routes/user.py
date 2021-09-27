@@ -1,18 +1,15 @@
-from fastapi import APIRouter
-import jwt
-
-from fastapi import FastAPI, Depends, HTTPException, status
+from fastapi import FastAPI, Depends, HTTPException, status,APIRouter
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from passlib.hash import bcrypt
-from tortoise import fields 
-from tortoise.contrib.fastapi import register_tortoise
-from tortoise.contrib.pydantic import pydantic_model_creator
-from tortoise.models import Model 
+import jwt
+#database connection
 from config.db import conn
+
 from models.index import user
 from passlib.context import CryptContext
-
 from schemas.item import user_class
+
+
 user_obj=APIRouter()
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl='token')
@@ -22,11 +19,10 @@ async def create_user(user_obj: user_class):
     conn.execute(user.insert().values(       
          First_Name=user_obj.First_Name,
          Last_Name=user_obj.Last_Name,
-         username=user_obj.username,
-        
+         username=user_obj.username,     
          password_hash=pwd_context.hash(user_obj.password_hash)
          ))
-    return conn.execute(user.select()).fetchall()
+    return user_obj
 
 
 def Convert(a):
@@ -50,13 +46,15 @@ async def authenticate_user(username: str, password: str):
     if not pwd_context.verify(password,hash):
         return False   
     return True
-@user_obj.post("/Item")
+@user_obj.post("/User Login")
 async  def login(form_data: OAuth2PasswordRequestForm = Depends()):
       if(await authenticate_user(form_data.username, form_data.password)):
-        
-          print(True) 
+        return "Access Granted"
       else:
-          print("false")
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED, 
+            detail='Invalid username or password'
+        )
 
 
 
